@@ -29,13 +29,11 @@ class Book{
         }
     }
 
-
-    //Keeps track of how many entries are in the book
     private int entries = 0;
     Entry[] contents;
     public void initEntries(int e){
         contents = new Entry[e];
-        for (int i = 0;i<contents.length;i++){      //Initializes an array of entries, then loops through to initialize each individual entry
+        for (int i = 0;i<contents.length;i++){     
             contents[i] = new Entry();
         }
     }
@@ -59,7 +57,7 @@ class Book{
                 if (entry+1==entries) contents[entry] = new Entry();
                 else{
                     Entry temp = contents[entry+i];
-                    contents[entry+i] = contents[entry+i+1]; //Removes an entry end moves each entry after it one backwards.
+                    contents[entry+i] = contents[entry+i+1]; 
                     contents[entry+i+1] = temp;
                 }
             }
@@ -140,7 +138,7 @@ public class Addr_Br {
         while(true){
             howManyBooks = s.nextInt();
             if (howManyBooks>0){
-                library = new Book[howManyBooks];                   //This code decides how many books are in the array of books/the library
+                library = new Book[howManyBooks];                   
                 break;
             }
             else System.out.println("You must create at least 1 book.");
@@ -151,13 +149,13 @@ public class Addr_Br {
         for (int i=0;i<library.length;i++){
 
 
-            library[i] = new Book(); //Fixed reference to null because each book in the library had not been initialized yet.
+            library[i] = new Book(); 
 
             while(true){
                 System.out.print("How many entries in book "+i+"? ");
                 howManyEntries = s.nextInt();
                 if (howManyEntries>0) {
-                    library[i].initEntries(howManyEntries);                 //This code decides how many entries are in each book in the library
+                    library[i].initEntries(howManyEntries);                
                     break;
                 }
                 else System.out.println("You must create at least 1 Entry.");
@@ -173,7 +171,7 @@ public class Addr_Br {
 
             for (int i = 0;i<library[selectedBook].getEntries();i++){
                 System.out.println("===========Entry "+i+" ===========");
-                library[selectedBook].contents[i].readEntry(); //Accessing the array of entries INSIDE the array of books/the library
+                library[selectedBook].contents[i].readEntry(); 
                 System.out.println("================================");
             }
 
